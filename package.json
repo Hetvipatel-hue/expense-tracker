@@ -2,9 +2,8 @@
   "name": "expense-tracker",
   "version": "1.0.0",
   "private": true,
-  "description": "Full-stack Expense Tracker Web Application",
   "scripts": {
-    "build": "node -e \"const fs = require('fs'), cp = require('child_process'); const b = fs.existsSync('Backend') ? 'Backend' : 'backend'; const f = fs.existsSync('Frontend') ? 'Frontend' : 'frontend'; cp.execSync('npm install --prefix ' + b + ' && npm install --prefix ' + f + ' && npm run build --prefix ' + f, { stdio: 'inherit' });\"",
-    "start": "node -e \"const fs = require('fs'); const b = fs.existsSync('Backend') ? 'Backend' : 'backend'; require('./' + b + '/server.js');\""
+    "build": "npm --prefix backend install && npm --prefix frontend install --include=dev && npm --prefix frontend run build",
+    "start": "node backend/server.js"
   }
 }
